@@ -1,14 +1,15 @@
-FROM ubuntu:20.04
+FROM alpine:3.12.0
 
-RUN apt-get update
-RUN apt-get install -y openssh-server
-RUN mkdir /var/run/sshd
-
-RUN apt-get install -y less curl iputils-ping
+RUN apk add --update --no-cache openssh openssh-sftp-server tzdata rsyslog bash && \
+    ln -s /bin/bash /bin/rbash && \
+    echo "/bin/rbash" >> /etc/shells && \
+    cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
+    echo "Asia/Tokyo" > /etc/timezone && \
+    apk del tzdata && \
+    rm -rf /var/cache/apk/*
 
 COPY sshd_config /etc/ssh/sshd_config
 
 EXPOSE 22
 
 CMD ["/usr/sbin/sshd", "-De"]
-#CMD ["tail", "-f", "/dev/null"]
