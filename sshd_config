@@ -6,6 +6,9 @@ PrintMotd no
 AcceptEnv LANG LC_*
 Subsystem sftp  /usr/lib/openssh/sftp-server
 PasswordAuthentication no
+PubkeyAuthentication yes
+AuthorizedKeysCommand /usr/lib/stns/stns-key-wrapper
+AuthorizedKeysCommandUser root
 DenyUsers cdsl
 
 HostKey /etc/ssh/hostkeys/ssh_host_dsa_key
