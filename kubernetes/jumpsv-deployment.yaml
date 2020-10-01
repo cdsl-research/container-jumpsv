@@ -15,32 +15,40 @@ spec:
         app: jumpsv
     spec:
       containers:
-      - name: jumpsv
-        image: tibineko923/sshsv:v1.2
-        ports:
-        - containerPort: 22
-      volumeMounts:
-        - name: secret-jumpsv-volume
-          mountPath: /etc/ssh/hostkeys
-          readOnly: true
+        - name: jumpsv
+          image: tibineko923/sshsv:v1.2
+          ports:
+            - containerPort: 22
+          volumeMounts:
+            - name: secret-jumpsv-volume
+              mountPath: /etc/ssh/hostkeys
+              readOnly: true
       volumes:
         - name: secret-jumpsv-volume
           secret:
             secretName: jumpsv-secret-config
             items:
-              - path: ssh_host_dsa_key
+              - key: ssh_host_dsa_key
+                path: ssh_host_dsa_key
                 mode: 0600
-              - path: ssh_host_dsa_key.pub
+              - key: ssh_host_dsa_key.pub
+                path: ssh_host_dsa_key.pub
                 mode: 0600
-              - path: ssh_host_ecdsa_key
+              - key: ssh_host_ecdsa_key
+                path: ssh_host_ecdsa_key
                 mode: 0600
-              - path: ssh_host_ecdsa_key.pub
+              - key: ssh_host_ecdsa_key.pub
+                path: ssh_host_ecdsa_key.pub
                 mode: 0600
-              - path: ssh_host_ed25519_key
+              - key: ssh_host_ed25519_key
+                path: ssh_host_ed25519_key
                 mode: 0600
-              - path: ssh_host_ed25519_key.pub
+              - key: ssh_host_ed25519_key.pub
+                path: ssh_host_ed25519_key.pub
                 mode: 0600
-              - path: ssh_host_rsa_key
+              - key: ssh_host_rsa_key
+                path: ssh_host_rsa_key
                 mode: 0600
-              - path: ssh_host_rsa_key.pub
+              - key: ssh_host_rsa_key.pub
+                path: ssh_host_rsa_key.pub
                 mode: 0600

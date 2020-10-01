@@ -8,6 +8,6 @@ spec:
   - protocol: TCP
     port: 22
     targetPort: 22
-    nodeport: 32222
+    nodePort: 32222
   selector:
     app: jumpsv
