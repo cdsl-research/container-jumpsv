@@ -18,16 +18,38 @@ docke hub : https://hub.docker.com/repository/docker/tibineko923/sshsv
 
 ### Usage(kubernetes)
 ```
-1. kubectl create secret generic jumpsv-secret-config \
-  --from-file=../hostkeys/ssh_host_dsa_key \
-  --from-file=../hostkeys/ssh_host_dsa_key.pub \
-  --from-file=../hostkeys/ssh_host_ecdsa_key \
-  --from-file=../hostkeys/ssh_host_ecdsa_key.pub \
-  --from-file=../hostkeys/ssh_host_ed25519_key \
-  --from-file=../hostkeys/ssh_host_ed25519_key.pub \
-  --from-file=../hostkeys/ssh_host_rsa_key \
-  --from-file=../hostkeys/ssh_host_rsa_key.pub \
-  --dry-run -o yaml | kubectl apply -f -
-2. kubectl apply -f jumpsv-deployment.yaml -n [namespace_name]
-3. kubectl apply -f jumpsv-service.yaml -n [namespace_name]
+1. cd ./container-jumpsv/kubernetes
+
+.
+├── docker
+│   ├── client.conf
+│   ├── Dockerfile
+│   ├── entrypoint.sh
+│   └── sshd_config
+├── hostkeys
+│   ├── ssh_host_dsa_key
+│   ├── ssh_host_dsa_key.pub
+│   ├── ssh_host_ecdsa_key
+│   ├── ssh_host_ecdsa_key.pub
+│   ├── ssh_host_ed25519_key
+│   ├── ssh_host_ed25519_key.pub
+│   ├── ssh_host_rsa_key
+│   └── ssh_host_rsa_key.pub
+├── kubernetes <-
+│   ├── jumpsv-deployment.yaml
+│   └── jumpsv-service.yaml
+└── README.md
+
+2. kubectl create secret generic jumpsv-secret-config \
+   --from-file=../hostkeys/ssh_host_dsa_key \
+   --from-file=../hostkeys/ssh_host_dsa_key.pub \
+   --from-file=../hostkeys/ssh_host_ecdsa_key \
+   --from-file=../hostkeys/ssh_host_ecdsa_key.pub \
+   --from-file=../hostkeys/ssh_host_ed25519_key \
+   --from-file=../hostkeys/ssh_host_ed25519_key.pub \
+   --from-file=../hostkeys/ssh_host_rsa_key \
+   --from-file=../hostkeys/ssh_host_rsa_key.pub \
+   --dry-run -o yaml | kubectl apply -f - -n [namespace_name]
+3. kubectl apply -f jumpsv-deployment.yaml -n [namespace_name]
+4. kubectl apply -f jumpsv-service.yaml -n [namespace_name]
 ```
