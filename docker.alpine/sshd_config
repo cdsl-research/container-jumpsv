@@ -14,5 +14,4 @@ PermitRootLogin no
 PrintMotd no
 PubkeyAuthentication yes
 Subsystem sftp  /usr/lib/openssh/sftp-server
-UsePAM yes
 X11Forwarding yes
