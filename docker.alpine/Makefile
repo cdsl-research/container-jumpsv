@@ -12,5 +12,5 @@ exec:
 	sudo docker exec -it $(ALT_NAME) sh
 
 push:
-	sudo docker tag $(CONTAINER_NAME) docker.pkg.github.com/cdsl-research/stns-container/$(CONTAINER_NAME):$(VER)
-	sudo docker push docker.pkg.github.com/cdsl-research/stns-container/$(CONTAINER_NAME):$(VER)
+	sudo docker tag $(CONTAINER_NAME) ghcr.io/tomoyk/stns-container/$(CONTAINER_NAME):$(VER)
+	sudo docker push ghcr.io/tomoyk/stns-container/$(CONTAINER_NAME):$(VER)
