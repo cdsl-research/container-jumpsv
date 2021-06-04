@@ -1,10 +1,11 @@
 # container-jumpsv
+
 踏み台用SSHサーバーをコンテナ化したもの(クライアント側)です.
 
+### Usage(docker.debain)
 
-docke hub : https://hub.docker.com/repository/docker/tibineko923/sshsv
+[tibineko923/sshsv - Docker Hub](https://hub.docker.com/repository/docker/tibineko923/sshsv)
 
-### Usage(docker)
 ```
 1. sudo docker pull tibineko923/sshsv:v1.2
 2. mkdir hostkeys
@@ -17,6 +18,7 @@ docke hub : https://hub.docker.com/repository/docker/tibineko923/sshsv
 ```
 
 ### Usage(kubernetes)
+
 ```
 1. cd ./container-jumpsv/kubernetes
 
