@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jumpsv-nodeport
+spec:
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 22
+    targetPort: 22
+    nodePort: 32222
+  selector:
+    app: jumpsv

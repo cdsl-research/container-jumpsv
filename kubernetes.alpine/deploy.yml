@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jumpsv-deployment
+  labels:
+    app: jumpsv
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jumpsv
+  template:
+    metadata:
+      labels:
+        app: jumpsv
+    spec:
+      containers:
+        - name: jumpsv
+          image: ghcr.io/tomoyk/stns-container/container-jumpsv:v0.1
+          ports:
+            - containerPort: 22
+          volumeMounts:
+            - name: secret-jumpsv-volume
+              mountPath: /etc/ssh/hostkeys
+              readOnly: true
+      volumes:
+        - name: secret-jumpsv-volume
+          secret:
+            secretName: jumpsv-secret-config
+            items:
+              - key: ssh_host_dsa_key
+                path: ssh_host_dsa_key
+                mode: 0600
+              - key: ssh_host_dsa_key.pub
+                path: ssh_host_dsa_key.pub
+                mode: 0600
+              - key: ssh_host_ecdsa_key
+                path: ssh_host_ecdsa_key
+                mode: 0600
+              - key: ssh_host_ecdsa_key.pub
+                path: ssh_host_ecdsa_key.pub
+                mode: 0600
+              - key: ssh_host_ed25519_key
+                path: ssh_host_ed25519_key
+                mode: 0600
+              - key: ssh_host_ed25519_key.pub
+                path: ssh_host_ed25519_key.pub
+                mode: 0600
+              - key: ssh_host_rsa_key
+                path: ssh_host_rsa_key
+                mode: 0600
+              - key: ssh_host_rsa_key.pub
+                path: ssh_host_rsa_key.pub
+                mode: 0600
