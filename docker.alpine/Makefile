@@ -1,5 +1,5 @@
 ALT_NAME=sshsv
-VER=v0.1.1
+VER=v0.1.3
 CONTAINER_NAME=container-jumpsv
 
 build:
