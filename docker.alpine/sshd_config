@@ -1,5 +1,5 @@
 AcceptEnv LANG LC_*
-AuthorizedKeysCommand /usr/lib/stns/stns-key-wrapper
+AuthorizedKeysCommand /usr/local/bin/stns-key-wrapper
 AuthorizedKeysCommandUser root
 ChallengeResponseAuthentication no
 DenyUsers cdsl
