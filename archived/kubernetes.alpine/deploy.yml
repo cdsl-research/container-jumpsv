@@ -1,32 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jumpsv-deployment
+  name: jump-dep
   labels:
-    app: jumpsv
+    app: ssh
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: jumpsv
+      app: ssh
   template:
     metadata:
       labels:
-        app: jumpsv
+        app: ssh
     spec:
       containers:
-        - name: jumpsv
-          image: ghcr.io/tomoyk/stns-container/container-jumpsv:v0.1
+        - name: jump-container
+          image: ghcr.io/tomoyk/stns-container/container-jumpsv:v0.1.5
           ports:
             - containerPort: 22
           volumeMounts:
-            - name: secret-jumpsv-volume
+            - name: jump-secret-volume
               mountPath: /etc/ssh/hostkeys
               readOnly: true
       volumes:
-        - name: secret-jumpsv-volume
+        - name: jump-secret-volume
           secret:
-            secretName: jumpsv-secret-config
+            secretName: jump-secret-config
             items:
               - key: ssh_host_dsa_key
                 path: ssh_host_dsa_key

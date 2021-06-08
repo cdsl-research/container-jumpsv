@@ -1,5 +1,5 @@
 AcceptEnv LANG LC_*
-AuthorizedKeysCommand /usr/lib/stns/stns-key-wrapper
+AuthorizedKeysCommand /usr/local/bin/stns-key-wrapper
 AuthorizedKeysCommandUser root
 ChallengeResponseAuthentication no
 DenyUsers cdsl
@@ -14,5 +14,4 @@ PermitRootLogin no
 PrintMotd no
 PubkeyAuthentication yes
 Subsystem sftp  /usr/lib/openssh/sftp-server
-UsePAM yes
 X11Forwarding yes
