@@ -10,6 +10,7 @@ AuthorizedKeysCommand /usr/lib/stns/stns-key-wrapper
 AuthorizedKeysCommandUser root
 PasswordAuthentication no
 DenyUsers cdsl
+PidFile /tmp/sshd.pid
 
 HostKey /etc/ssh/hostkeys/ssh_host_dsa_key
 HostKey /etc/ssh/hostkeys/ssh_host_ecdsa_key
