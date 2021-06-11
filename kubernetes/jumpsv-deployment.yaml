@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: jumpsv
-          image: ghcr.io/tomoyk/container-jump/container-jump:v1.0.6
+          image: ghcr.io/tomoyk/container-jump/container-jump:v1.0.7
           ports:
             - containerPort: 22
           volumeMounts:
