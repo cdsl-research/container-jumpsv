@@ -23,6 +23,14 @@ spec:
             - name: secret-jumpsv-volume
               mountPath: /etc/ssh/hostkeys
               readOnly: true
+      dnsPolicy: "None"
+      dnsConfig:
+        nameservers:
+          - 192.168.100.6
+          - 10.200.70.35
+          - 1.1.1.1
+        searches:
+          - a910.tak-cslab.org
       volumes:
         - name: secret-jumpsv-volume
           secret:
