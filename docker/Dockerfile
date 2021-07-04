@@ -1,7 +1,7 @@
 FROM debian:stretch-slim
 
 RUN apt-get update -qqy && \
-    apt-get install -qqy sudo curl gnupg openssh-server apt-transport-https iputils-ping net-tools && \
+    apt-get install -qqy sudo curl gnupg openssh-server apt-transport-https iputils-ping net-tools rsyslog && \
     mkdir -p /var/run/sshd && \
     curl -fsSL https://repo.stns.jp/scripts/apt-repo.sh | sh && \
     apt-get install -y stns-v2 libnss-stns-v2 && \

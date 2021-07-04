@@ -1,16 +1,18 @@
-LogLevel VERBOSE
-ChallengeResponseAuthentication no
-UsePAM yes
-X11Forwarding yes
-PrintMotd no
 AcceptEnv LANG LC_*
-Subsystem sftp  /usr/lib/openssh/sftp-server
-PubkeyAuthentication yes
 AuthorizedKeysCommand /usr/lib/stns/stns-key-wrapper
 AuthorizedKeysCommandUser root
-PasswordAuthentication no
+ChallengeResponseAuthentication no
 DenyUsers cdsl
+LogLevel VERBOSE
+PasswordAuthentication no
 PidFile /tmp/sshd.pid
+PrintMotd no
+PubkeyAuthentication yes
+Subsystem sftp /usr/lib/openssh/sftp-server
+SyslogFacility AUTHPRIV
+UseDNS no
+UsePAM yes
+X11Forwarding yes
 
 HostKey /etc/ssh/hostkeys/ssh_host_dsa_key
 HostKey /etc/ssh/hostkeys/ssh_host_ecdsa_key
