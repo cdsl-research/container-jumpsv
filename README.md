@@ -1,5 +1,7 @@
 # container-jumpsv
 
+[![Create and publish a Docker image](https://github.com/cdsl-research/container-jumpsv/actions/workflows/image-build.yml/badge.svg)](https://github.com/cdsl-research/container-jumpsv/actions/workflows/image-build.yml)
+
 踏み台用SSHサーバーをコンテナ化したもの(クライアント側)です.
 
 ## Usage for K8s
