@@ -55,18 +55,16 @@ k apply -f jumpsv-service.yaml
 
 ## Development
 
-Container image) [tibineko923/sshsv - Docker Hub](https://hub.docker.com/repository/docker/tibineko923/sshsv)
-
 Pull container image
 
 ```
-docker pull tibineko923/sshsv:v1.2
+docker pull ghcr.io/cdsl-research/container-jumpsv:master
 ```
 
 Start container
 
 ```
-docker run -d -p 22000:22 -v $PWD/hostkeys:/etc/ssh/hostkeys tibineko923/sshsv:v1.2
+docker run -d -p 22000:22 -v $PWD/hostkeys:/etc/ssh/hostkeys ghcr.io/cdsl-research/container-jumpsv:master
 ```
 
 Connect to ssh server 
