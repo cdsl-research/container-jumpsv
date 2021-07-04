@@ -14,6 +14,7 @@ RUN apt-get update -qqy && \
 COPY sshd_config /etc/ssh/
 COPY motd /etc/
 COPY client.conf /etc/stns/client/stns.conf
+COPY auth.conf /etc/rsyslog.d/
 COPY entrypoint.sh /tmp
 
 EXPOSE 22
