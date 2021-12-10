@@ -14,6 +14,9 @@ UseDNS no
 UsePAM yes
 X11Forwarding yes
 
+ClientAliveInterval 30
+ClientAliveCountMax 10
+
 HostKey /etc/ssh/hostkeys/ssh_host_dsa_key
 HostKey /etc/ssh/hostkeys/ssh_host_ecdsa_key
 HostKey /etc/ssh/hostkeys/ssh_host_ed25519_key
