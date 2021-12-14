@@ -18,17 +18,13 @@ RUN apt-get update -qqy && \
     sed -i '1s/^/set -r\n/' /etc/bash.bashrc && \
     echo 'session    required     pam_mkhomedir.so skel=/etc/skel/ umask=0022' >> /etc/pam.d/sshd
 
-# xpanes
-RUN apt-get install -qqy software-properties-common && \
-    add-apt-repository ppa:greymd/tmux-xpanes && \
-    apt-get update -qqy && \
-    apt-get install -qqy tmux-xpanes
-
 COPY sshd_config /etc/ssh/
 COPY motd /etc/
 COPY client.conf /etc/stns/client/stns.conf
 COPY auth.conf /etc/rsyslog.d/
 COPY entrypoint.sh /tmp
+
+RUN echo -e "\nBuild Date: $(date)" >> /etc/motd
 
 EXPOSE 22
 
