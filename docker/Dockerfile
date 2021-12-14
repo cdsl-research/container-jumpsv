@@ -24,6 +24,8 @@ COPY client.conf /etc/stns/client/stns.conf
 COPY auth.conf /etc/rsyslog.d/
 COPY entrypoint.sh /tmp
 
+RUN echo -e "\nBuild Date: $(date)" >> /etc/motd
+
 EXPOSE 22
 
 CMD ["/bin/bash", "/tmp/entrypoint.sh"]
