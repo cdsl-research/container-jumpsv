@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: jumpsv
-          image: ghcr.io/cdsl-research/container-jumpsv:master
+          image: ghcr.io/cdsl-research/container-jumpsv:v1.0
           ports:
             - containerPort: 22
           volumeMounts:
