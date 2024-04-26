@@ -2,7 +2,7 @@ FROM debian:stretch-slim
 
 WORKDIR /cmds
 
-RUN apt-get update -qqy
+#RUN apt-get update -qqy
 RUN apt-get install -qqy sudo curl gnupg openssh-server apt-transport-https iputils-ping dnsutils rsyslog
 RUN mkdir -p /var/run/sshd
 RUN curl -fsSL https://repo.stns.jp/scripts/apt-repo.sh | sh
