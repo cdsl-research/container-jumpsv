@@ -14,6 +14,7 @@ UseDNS no
 UsePAM yes
 X11Forwarding yes
 
+MaxSessions 50
 ClientAliveInterval 30
 ClientAliveCountMax 10
 
